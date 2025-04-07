@@ -2,7 +2,6 @@ import socket
 import struct
 
 def checksum(data):
-    """Compute checksum (same logic as in client)."""
     if len(data) % 2:
         data += b'\x00'
     s = sum(struct.unpack("!%dH" % (len(data) // 2), data))
@@ -50,5 +49,4 @@ def main():
         print(f"Data: {parsed['data'].decode(errors='ignore')}")
 
 if __name__ == "__main__":
-    main()
-# This server listens for UDP packets, parses them, and prints their details.
+    main()  
